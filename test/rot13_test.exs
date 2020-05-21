@@ -15,11 +15,11 @@ defmodule Rot13Test do
   describe "convert_tr/2" do
     test "alphabet conversion" do
       assert "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm" ==
-               Rot13.convert_tr("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", [])
+               Rot13.convert_tr("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", "")
     end
 
     test "multibyte characters are passed through" do
-      assert "üsb çué" == Rot13.convert_tr("üfo çhé", [])
+      assert "üsb çué" == Rot13.convert_tr("üfo çhé", "")
     end
   end
 end

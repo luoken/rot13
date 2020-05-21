@@ -20,11 +20,11 @@ defmodule Rot13 do
   end
 
   def convert_tr(<<head::utf8, tail::binary>>, acc) do
-    convert_tr(tail, acc ++ [handle_codepoint(head)])
+    convert_tr(tail, acc <> to_string([handle_codepoint(head)]))
   end
 
   def convert_tr(<<>>, acc) do
-    List.to_string(acc)
+    acc
   end
 
   @spec handle_codepoint(codepoint :: char) :: char
