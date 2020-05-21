@@ -1,6 +1,6 @@
 # Rot13
 
-**TODO: Add description**
+A Rot13 cipher implemented in elixir.
 
 ## Installation
 
