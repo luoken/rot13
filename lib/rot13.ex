@@ -20,16 +20,13 @@ defmodule Rot13 do
   end
 
   @spec handle_codepoint(codepoint :: char) :: char
-  def handle_codepoint(codepoint) do
-    cond do
-      (codepoint >= 65 and codepoint <= 77) or (codepoint >= 97 and codepoint <= 109) ->
-        codepoint + 13
+  def handle_codepoint(codepoint)
+      when (codepoint >= ?A and codepoint <= ?M) or (codepoint >= ?a and codepoint <= ?m),
+      do: codepoint + 13
 
-      (codepoint >= 78 and codepoint <= 90) or (codepoint >= 110 and codepoint <= 122) ->
-        codepoint - 13
+  def handle_codepoint(codepoint)
+      when (codepoint >= ?N and codepoint <= ?Z) or (codepoint >= ?n and codepoint <= ?z),
+      do: codepoint - 13
 
-      true ->
-        codepoint
-    end
-  end
+  def handle_codepoint(codepoint), do: codepoint
 end
