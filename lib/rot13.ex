@@ -19,14 +19,6 @@ defmodule Rot13 do
     |> List.to_string()
   end
 
-  def convert_tr(<<head::utf8, tail::binary>>, acc) do
-    convert_tr(tail, acc <> to_string([handle_codepoint(head)]))
-  end
-
-  def convert_tr(<<>>, acc) do
-    acc
-  end
-
   @spec handle_codepoint(codepoint :: char) :: char
   def handle_codepoint(codepoint)
       when (codepoint >= ?A and codepoint <= ?M) or (codepoint >= ?a and codepoint <= ?m),
